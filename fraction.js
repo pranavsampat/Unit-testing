@@ -10,6 +10,13 @@ class Fraction {
     const numerator = this.numerator * (lcm / this.denominator) + fraction.numerator * (lcm / fraction.denominator);
     return new Fraction(numerator, lcm);
   }
+  
+  subtract(fraction) {
+    const lcm = this.getLCM(this.denominator, fraction.denominator);
+    const numerator = this.numerator * (lcm / this.denominator) - fraction.numerator * (lcm / fraction.denominator);
+    return new Fraction(numerator, lcm);
+  }
+  
   compare(fraction) {
     const lhs = this.numerator / this.denominator;
     const rhs = fraction.numerator / fraction.denominator;
