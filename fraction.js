@@ -36,3 +36,30 @@ function main(){
   output(fract1,fract2,fract3);
 }
 main();
+
+
+//multiplication of 2 fractions
+
+const prompt = require("prompt-sync")();
+
+class Fraction {
+  constructor(numerator, denominator) {
+    this.numerator = numerator;
+    this.denominator = denominator;
+  }
+
+  multiply(otherFraction) {
+    let numerator = this.numerator * otherFraction.numerator;
+    let denominator = this.denominator * otherFraction.denominator;
+    return new Fraction(numerator, denominator);
+  }
+
+  display() {
+    console.log(`The result is ${this.numerator}/${this.denominator}`);
+  }
+}
+
+let fraction1 = new Fraction(parseFloat(prompt("Enter the first numerator:")), parseFloat(prompt("Enter the first denominator:")));
+let fraction2 = new Fraction(parseFloat(prompt("Enter the second numerator:")), parseFloat(prompt("Enter the second denominator:")));
+let result = fraction1.multiply(fraction2);
+result.display();
