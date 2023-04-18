@@ -96,4 +96,43 @@ function divideFractions(numerator1, denominator1, numerator2, denominator2) {
   // Example usage
   console.log(divideFractions(3, 4, 1, 2)); // Output: 3/2
   console.log(divideFractions(2, 5, 3, 4)); // Output: 8/15
+
+  // substraction of 2 fractions 
+
+const prompt = require("prompt-sync")();
+
+class fraction{
+  constructor(num,den){
+    this.num;
+    this.den;
+  };
+}
+
+function subtractFractions(num1, den1, num2, den2) {
+    let commonDenominator = den1 * den2;
+    let newNum1 = num1 * den2;
+    let newNum2 = num2 * den1;
+    let numerator = newNum1 - newNum2;
+    let denominator = commonDenominator;
+    return simplifyFraction(numerator, denominator);
+  }
   
+  function simplifyFraction(num, den) {
+    let gcd = findGCD(num, den);
+    return [num / gcd, den / gcd];
+  }
+  
+  function findGCD(a, b) {
+    if (b === 0) {
+      return a;
+    }
+    return findGCD(b, a % b);
+  }
+  
+  let num1 = parseFloat(prompt("Enter the first numerator:"));
+  let den1 = parseFloat(prompt("Enter the first denominator:"));
+  let num2 = parseFloat(prompt("Enter the second numerator:"));
+  let den2 = parseFloat(prompt("Enter the second denominator:"));
+  
+  let result = subtractFractions(num1, den1, num2, den2);
+  alert(`The result is ${result[0]}/${result[1]}`);
