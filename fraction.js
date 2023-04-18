@@ -21,6 +21,11 @@ class Fraction {
       return 0;
     }
   }
+  multiply(fraction) {
+    const numerator = this.numerator * fraction.numerator;
+    const denominator = this.denominator * fraction.denominator;
+    return new Fraction(numerator, denominator);
+  }
   getLCM(a, b) {
     return (a * b) / this.getGCD(a, b);
   }
