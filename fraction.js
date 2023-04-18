@@ -27,10 +27,12 @@ class Fraction {
     } else {
       return 0;
     }
+    
   }
-  multiply(fraction) {
-    const numerator = this.numerator * fraction.numerator;
-    const denominator = this.denominator * fraction.denominator;
+  
+  divide(fraction) {
+    const numerator = this.numerator * fraction.denominator;
+    const denominator = this.denominator * fraction.numerator;
     return new Fraction(numerator, denominator);
   }
   getLCM(a, b) {
