@@ -63,3 +63,37 @@ let fraction1 = new Fraction(parseFloat(prompt("Enter the first numerator:")), p
 let fraction2 = new Fraction(parseFloat(prompt("Enter the second numerator:")), parseFloat(prompt("Enter the second denominator:")));
 let result = fraction1.multiply(fraction2);
 result.display();
+
+// division of 2 fractions
+
+function divideFractions(numerator1, denominator1, numerator2, denominator2) {
+    // Check for invalid inputs
+    if (denominator1 === 0 || denominator2 === 0) {
+      return "Invalid input. Denominator cannot be zero.";
+    }
+  
+    // Divide the fractions
+    const numerator = numerator1 * denominator2;
+    const denominator = denominator1 * numerator2;
+  
+    // Simplify the result if possible
+    const gcd = findGCD(numerator, denominator);
+    const simplifiedNumerator = numerator / gcd;
+    const simplifiedDenominator = denominator / gcd;
+  
+    return `${simplifiedNumerator}/${simplifiedDenominator}`;
+  }
+  
+  // Helper function to find the greatest common divisor
+  function findGCD(a, b) {
+    if (b === 0) {
+      return a;
+    } else {
+      return findGCD(b, a % b);
+    }
+  }
+  
+  // Example usage
+  console.log(divideFractions(3, 4, 1, 2)); // Output: 3/2
+  console.log(divideFractions(2, 5, 3, 4)); // Output: 8/15
+  
