@@ -30,6 +30,12 @@ class Fraction {
     
   }
   
+  multiply(fraction) {
+    const numerator = this.numerator * fraction.numerator;
+    const denominator = this.denominator * fraction.denominator;
+    return new Fraction(numerator, denominator);
+  }
+  
   divide(fraction) {
     const numerator = this.numerator * fraction.denominator;
     const denominator = this.denominator * fraction.numerator;
